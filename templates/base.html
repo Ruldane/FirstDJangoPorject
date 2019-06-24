@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>{% block title%} {% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> <!-- link boostrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> <!-- link css -->
+</head>
+<body>
+
+
+
+{% include 'navbar.html' %} <!-- insert navbar.html here, will be extend on all the page -->
+{% block content %} {% endblock %} <!-- to insert element in the body of the other pages -->
+
+</body>
+</html>

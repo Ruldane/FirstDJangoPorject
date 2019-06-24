@@ -1,0 +1,33 @@
+{% extends 'base.html'%} <!-- use the layout of base.html -->
+
+{% block title %} Home {% endblock %} <!-- Block title -->
+
+{% block content %} <!-- Block content from base.html -->
+
+<h1> This is our home page</h1>
+
+{{ text}} <!-- Context text": "this if from context",-->
+{{ Mynumber}} <!-- Context Mynumber -->
+
+<!-- for loop in Django with a list. List created in the context from views.py-->
+{% for fruit in fruits%}
+
+<ul>
+    <li> <a href="">{{fruit}}</a> </li>
+</ul>
+
+{% endfor%}
+
+{%if number == 100 %} <!-- if statement false, number comes from views.py -->
+<h1>The condition is true</h1>
+
+{% else %}  <!-- if statement false, number comes from views.py -->
+<h1> The condition is false </h1>
+
+{%endif%}
+
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+
+{% endblock %} <!-- End of block content from base.html -->

@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{% block title %} FirstForm {% endblock %}
+
+{% block content %}
+
+
+<form action="{% url 'addUser' %}" method="post"> <!-- redirection to the url addUser-->
+
+    {% csrf_token %} <!-- to validate the form-->
+
+    <div class="container">
+
+        {% if messages%} <!-- if messages (messages.SUCCESS) come from for the method addUser in views.py-->
+
+        <ul class="messages">
+            {% for msg in messages %} <!-- for loop to selection the message -->
+            <li>
+                <div class="alert alert-{{msg.level_tag}}" role="alert"> <!-- bootstrap layout-->
+                    {{msg.message}} <!-- display the message-->
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h1> Rgistration Form </h1>
+
+        <h2>You can register for free </h2>
+
+        <div class="form-group">
+            <label>Username</label>
+
+            {{form.username}} <!-- field come from forms.py -->
+          </div>
+
+          <div class="form-group">
+            <label>Email address</label>
+            {{form.email}} <!-- field come from forms.py -->
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            {{form.password}} <!-- field come from forms.py -->
+          </div>
+
+          <div class="form-group">
+            <label>phone</label>
+            {{form.phone}} <!-- field come from forms.py -->
+          </div>
+
+          <input type="submit" class="btn btn-primary" value="Submit"> <!-- submit input -->
+
+
+    </div>
+
+</form>
+
+{% endblock %}

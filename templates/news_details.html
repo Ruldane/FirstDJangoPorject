@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block title %} News details {% endblock %}
+
+{% block content %}
+
+
+
+<h1> This is the news's details </h1>
+
+<h4> created the  {{object.pub_date}} </h4>
+<h1> {{object.author}}</h1> <!-- object come from views.py and take the author with id =1 -->
+<h2> {{object.title}}</h2> <!-- object come from views.py and take the title with author -> id =1 -->
+<h3> {{object.description}}</h3> <!-- object come from views.py and take the description with author -> id =1 -->
+
+{% endblock %}
