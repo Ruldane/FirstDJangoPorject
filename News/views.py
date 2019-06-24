@@ -95,6 +95,9 @@ def upload(request):
 def addFIle(request):
     myfile = DocumentForm(request.POST)
     if myfile.is_valid():
+        upload_file = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(upload_file.name, upload_file)
         myfile.save()
     return redirect('upload')
 
