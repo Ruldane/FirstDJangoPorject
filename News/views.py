@@ -2,7 +2,7 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from .models import News
-from .forms import RegistrationForm, RegistrationModalForm  # import the class
+from .forms import RegistrationForm, RegistrationModalForm, DocumentForm  # import the class
 from .models import RegistrationData
 from django.contrib import messages
 
@@ -87,15 +87,16 @@ def addModalForm(request):
 
 
 def upload(request):
-    context = {}
-    if request.method == 'POST':
-        upload_file = request.FILES['document']
-        fs = FileSystemStorage()
-        fs.save(upload_file.name, upload_file)
-        context['url'] = fs.url(upload_file.name)
-    return render (request, 'upload.html', context)
+    context = {
+        'upload' : DocumentForm
+    }
+    return render(request, "upload.html", context)
 
-
+def addFIle(request):
+    myfile = DocumentForm(request.POST)
+    if myfile.is_valid():
+        myfile.save()
+    return redirect('upload')
 
 
 

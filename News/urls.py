@@ -15,5 +15,5 @@ urlpatterns = [
     path('modalform/', views.modalformview, name='addmodalform'),
     path('admodalform/', views.addModalForm, name='admodalform'),
     path('upload/', views.upload, name='upload'),
-    #path('addfile/', views.addFIle, name='addfile'),
+    path('addfile/', views.addFIle, name='addfile'),
 ]

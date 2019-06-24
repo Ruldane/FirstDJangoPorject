@@ -35,3 +35,10 @@ class RegistrationData(models.Model):
     def __str__(self):
         return self.username
 
+class Document(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    document = models.FileField(upload_to='media/')
+    uploaded_at = models.DateField(default=timezone.now())
+
+    def __str__(self):
+        return self.description

@@ -1,5 +1,6 @@
 from django import forms
-from .models import RegistrationData
+from .models import RegistrationData, Document
+
 
 class RegistrationForm(forms.Form):
     # call to the file registration.html
@@ -28,6 +29,12 @@ class RegistrationModalForm(forms.ModelForm):
         }
 
 
-
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = [
+            'description',
+            'document',
+        ]
 
 
