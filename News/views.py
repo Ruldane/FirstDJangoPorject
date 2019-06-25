@@ -1,7 +1,7 @@
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
-from .models import News
+from .models import News, Document
 from .forms import RegistrationForm, RegistrationModalForm, DocumentForm  # import the class
 from .models import RegistrationData
 from django.contrib import messages
@@ -93,14 +93,24 @@ def upload(request):
     return render(request, "upload.html", context)
 
 def addFIle(request):
+    context = {
+        'upload': DocumentForm
+    }
     myfile = DocumentForm(request.POST)
     if myfile.is_valid():
         upload_file = request.FILES['document']
         fs = FileSystemStorage()
         fs.save(upload_file.name, upload_file)
         myfile.save()
+        return redirect('detailsdoc')
     return redirect('upload')
 
-
+def document_details(request):
+    obj = Document.objects.all() # News means the class news in models.py, will take all information about id = 1
+    context = {
+    "object":obj # give a name to call in the details_document.html
+    }
+    # Return a HttpResponse whose content is filled with the result of calling
+    return render(request, "details_document.html", context)
 
 

@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block title %} Documents details {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <a href="{% url 'addfile' %}">Upload a document </a>
+
+     <h1> Details documents </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Upated</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for item in object %}
+    <tr>
+      <th scope="row"> {{ item.id }}</th>
+      <td>{{ item.uploaded_at }}</td>
+      <td>{{ item.description}}</td>
+    </tr>
+      {% endfor %}
+  </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
+
+
+

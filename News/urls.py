@@ -16,4 +16,6 @@ urlpatterns = [
     path('admodalform/', views.addModalForm, name='admodalform'),
     path('upload/', views.upload, name='upload'),
     path('addfile/', views.addFIle, name='addfile'),
+    path('detailsdoc/', views.document_details, name ='detailsdoc')
+
 ]

@@ -11,6 +11,7 @@
 
     <h1> This is our modal form </h1>
     <h3> Please register yourself </h3>
+    <a href="{% url 'detailsdoc' %}">Files uploaded </a>
 
     <form enctype="multipart/form-data"  method="post" action="{% url 'addfile' %}" ><!-- redirection to the url admodalform-->
         {% csrf_token %} <!-- to validate the form-->
